@@ -1,8 +1,16 @@
 'use client';
 import { Box, Typography, Button, Container } from '@mui/material';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 export default function Hero() {
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/analytics`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ eventType: 'page_visit', page: 'home' }),
+    }).catch((err) => console.error('Analytics error:', err));
+  }, []);
   return (
     <Box
       sx={{
@@ -29,6 +37,13 @@ export default function Hero() {
           <Button
             variant="contained"
             size="large"
+            onClick={() => {
+              fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/analytics`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ eventType: 'cta_click', page: 'home' }),
+              }).catch((err) => console.error('Analytics error:', err));
+            }}
             sx={{
               px: 4,
               py: 1.5,
