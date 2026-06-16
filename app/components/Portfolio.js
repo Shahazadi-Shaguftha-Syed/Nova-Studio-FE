@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Box, Container, Typography, Grid, Card, CardMedia, CardContent, Chip } from '@mui/material';
+import { Box, Container, Typography, Grid, Card, CardContent, Chip } from '@mui/material';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function Portfolio() {
@@ -38,12 +39,15 @@ export default function Portfolio() {
                     },
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    height="220"
-                    image={project.image}
-                    alt={project.title}
-                  />
+                  <Box sx={{ position: 'relative', height: 220, width: '100%' }}>
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </Box>
                   <CardContent>
                     <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
                       {project.title}
