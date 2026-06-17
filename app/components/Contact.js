@@ -53,7 +53,7 @@ export default function Contact() {
   };
 
   return (
-    <Box component="section" sx={{ py: 10 }}>
+    <Box id="contact" component="section" sx={{ py: 10 }}>
       <Container maxWidth="sm">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

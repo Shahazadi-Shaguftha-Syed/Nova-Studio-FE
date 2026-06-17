@@ -15,7 +15,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <Box component="section" sx={{ py: 10 }}>
+    <Box id="portfolio" component="section" sx={{ py: 10 }}>
       <Container maxWidth="lg">
         <Typography variant="h3" sx={{ fontWeight: 700, mb: 6, textAlign: 'center' }}>
           Our Work
