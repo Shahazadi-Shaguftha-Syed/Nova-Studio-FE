@@ -15,7 +15,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <Box component="section" sx={{ py: 10, bgcolor: 'background.paper' }}>
+    <Box component="section" id="stats" sx={{ py: 10, bgcolor: 'background.paper' }}>
       <Container maxWidth="lg">
         <Grid container spacing={4} sx={{ justifyContent: 'center', textAlign: 'center' }}>
           {stats.map((stat, index) => (
